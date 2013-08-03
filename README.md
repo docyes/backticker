@@ -1,6 +1,6 @@
 # Backticker
 
-setInterval's older brother. A Backbone-like class for creating objects that emit a tick event (Backbone.Events Mixin) at a defined interval based on an internal timer.
+setInterval's older brother from Backbone. A class for creating objects that emit a tick event (Backbone.Events Mixin) at a defined interval based on an internal timer.
 
 ```js
 var ticker = new Backbone.Ticker({interval: 500, start: true});
