@@ -1,19 +1,22 @@
-var Ticker = function(options) {
+var Backbone.Ticker = function(options) {
     options || (options = {});
     this.delay = options.delay;
     this.cid = _.uniqueId('ticker');
+    if (options.start) {
+        this.start(options.immediate);
+    }
 };
-_.extend(Ticker.prototype, Backbone.Events, {
-    start: function(force) {
+_.extend(Backbone.Ticker.prototype, Backbone.Events, {
+    start: function(immediate) {
         if (this._intervalId) {
             return;
         }
-        if (force) {
-            this.force();
+        if (immediate) {
+            this.immediate();
         }
         this._intervalId = setInterval(
             _.bind(function() {
-                this.trigger('tick', (new Date).getTime());
+                this.trigger('tick');
             }, this),
             this.delay
         );
@@ -30,10 +33,10 @@ _.extend(Ticker.prototype, Backbone.Events, {
         if (options.delay) {
             this.delay = options.delay;
         }
-        this.start(options.force);
+        this.start(options.immediate);
     },
-    force: function() {
-        this.trigger('tick', (new Date).getTime());
+    immediate: function() {
+        this.trigger('tick');
         if (this._intervalId) {
             this.reset();
         }
