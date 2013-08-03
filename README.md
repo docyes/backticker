@@ -55,5 +55,5 @@ When the `tick` event is trigggered params will be passed as a subsequent argume
 "tick" — when the elapsed time is equal to the set `interval`
 
 ## Backbone.Events Mixin
-Backplate uses the Backbone.Events Mixin; a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events. 
+Backplate uses the **Backbone.Events Mixin**; a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events. 
 See http://backbonejs.org/#Events for full documentation.
