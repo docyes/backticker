@@ -17,6 +17,8 @@ ticker.on('tick', function() {
 new Backbone.Ticker({interval: 500});
 ```
 
-If {interval: number} is passed as an option sets the tick interval otherwise ticks every 0 ms.
+If {interval: number} is passed as an option sets the tick interval otherwise tick event every 0 ms.
 
-If {immediate: true} is passed as an option emits a tick immediately otherwise waits for the interval threshold to be met.
+If {start: true} is passed as an option starts the ticker otherwise it must manually be started before emmiting tick events.
+
+If {immediate: true} is passed as an option paired with start true will emit a tick event immediately.
