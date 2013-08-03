@@ -38,7 +38,7 @@ If {immediate: true} is passed as an option will emit a tick event immediately.
 
 If {params: value} is passed as an option when the tick event is trigggered it will pass the value as a subsequent argument.
 
-## immediate()
+## tick()
 
 Emit a tick event and restart the current timer effectively restarting.
 
