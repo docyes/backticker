@@ -42,11 +42,14 @@ If {params: value} is passed as an option when the tick event is trigggered it w
 
 Emit a tick event and restart the current timer effectively restarting.
 
-## Catalog of Events
-"tick" — when the elapsed time is equal to the set interval
-
 ## cid
 A special property of tickers, the cid or client id is a unique identifier automatically assigned to all tickers when they're first created.
+
+## interval
+The interval between each tick event; defaults to undefined.
+
+## Catalog of Events
+"tick" — when the elapsed time is equal to the set interval
 
 ## Backbone.Events Mixin
 Backplate uses the Backbone.Events Mixin; a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events. 
