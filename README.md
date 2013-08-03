@@ -37,4 +37,4 @@ If {immediate: true} is passed as an option will emit a tick event immediately.
 ## immediate()
 
 ## Catalog of Events
-"tick" — when elapsed time is equal to the set interval
+"tick" — when the elapsed time is equal to the set interval
