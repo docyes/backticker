@@ -18,6 +18,10 @@ If {start: true} is passed as an option starts the ticker otherwise it must manu
 
 If {immediate: true} is passed as an option paired with start true will emit a tick event immediately.
 
+If {params: value} is passed as an option when the tick event is trigggered it will pass the value as a subsequent argument.
+
+Subsequent arguments to trigger will be passed along to the event callbacks.
+
 ## start([immediate])
 
 If immediate is true will emit a tick event immediately.
@@ -33,6 +37,8 @@ Restart the current timer.
 If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to interval from constructor.
 
 If {immediate: true} is passed as an option will emit a tick event immediately.
+
+If {params: value} is passed as an option when the tick event is trigggered it will pass the value as a subsequent argument.
 
 ## immediate()
 
