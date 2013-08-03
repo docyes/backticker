@@ -2,6 +2,9 @@ var Backbone.Ticker = function(options) {
     options || (options = {});
     this.interval = options.interval;
     this.cid = _.uniqueId('ticker');
+    if (options.params) {
+        this.params = options.params;
+    }
     if (options.start) {
         this.start(options.immediate);
     }
@@ -16,7 +19,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
         }
         this._intervalId = setInterval(
             _.bind(function() {
-                this.trigger('tick');
+                this.trigger('tick', this.params);
             }, this),
             this.interval
         );
@@ -33,10 +36,13 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
         if (options.delay) {
             this.delay = options.delay;
         }
+        if (options.params) {
+            this.params = options.params;
+        }
         this.start(options.immediate);
     },
     immediate: function() {
-        this.trigger('tick');
+        this.trigger('tick', this.params);
         if (this._intervalId) {
             this.restart();
         }
