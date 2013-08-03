@@ -18,7 +18,7 @@ If {start: true} is passed as an option starts the ticker otherwise it must manu
 
 If {immediate: true} is passed as an option paired with start true will emit a tick event immediately.
 
-If {params: value} is passed as an option when the tick event is trigggered it will pass the value as a subsequent argument. If value is an array it will pass each item as a subsequent argument.
+If {params: value(s)} is passed as an option when the tick event is trigggered it will pass the value as a subsequent argument. If value is an array it will pass each item as a subsequent argument.
 
 ## start([immediate])
 
