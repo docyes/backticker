@@ -3,8 +3,7 @@
 setInterval's older brother. A class for creating objects that emit a tick event at a defined interval. 
 
 ```js
-var ticker = new Backbone.Ticker({interval: 500});
-ticker.start();
+var ticker = new Backbone.Ticker({interval: 500, start: true});
 ticker.on('tick', function() {
   console.log('tick');
 });
