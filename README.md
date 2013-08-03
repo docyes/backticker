@@ -1,4 +1,4 @@
-# Backticker
+# Back Ticker
 
 setInterval's older brother from Backbone. A class for creating objects that emit a tick event (Backbone.Events Mixin) at a defined interval based on an internal timer.
 
