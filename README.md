@@ -49,7 +49,7 @@ A special property of tickers, the cid or client id is a unique identifier autom
 The interval between each tick event; defaults to undefined.
 
 ## params
-When the tick event is trigggered params will be passed as a subsequent argument.
+When the tick event is trigggered params will be passed as a subsequent argument; defaults to undefined.
 
 ## Catalog of Events
 "tick" — when the elapsed time is equal to the set interval
