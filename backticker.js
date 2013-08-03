@@ -27,7 +27,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
             delete this._intervalId;
         }
     },
-    reset: function(options) {
+    restart: function(options) {
         options || (options = {});
         this.stop();
         if (options.delay) {
@@ -38,7 +38,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
     immediate: function() {
         this.trigger('tick');
         if (this._intervalId) {
-            this.reset();
+            this.restart();
         }
     }
 });
