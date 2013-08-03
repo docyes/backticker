@@ -15,7 +15,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
             return;
         }
         if (immediate) {
-            this.immediate();
+            this.tick();
         }
         this._intervalId = setInterval(
             _.bind(function() {
@@ -41,7 +41,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
         }
         this.start(options.immediate);
     },
-    immediate: function() {
+    tick: function() {
         this.trigger('tick', this.params);
         if (this._intervalId) {
             this.restart();
