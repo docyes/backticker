@@ -2,7 +2,6 @@
 
 setInterval's older brother. A class for creating objects that emit a tick event at a defined interval. 
 
-## Example
 ```js
 var ticker = new Backbone.Ticker({interval: 500});
 ticker.start();
@@ -37,3 +36,5 @@ If {immediate: true} is passed as an option will emit a tick event immediately.
 
 ## immediate()
 
+## Catalog of Events
+"tick" — when elapsed time is equal to the set interval
