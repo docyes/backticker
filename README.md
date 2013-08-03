@@ -26,17 +26,17 @@ If immediate is true will emit a tick event immediately.
 
 Stop the current internal timer and any subsequent tick events from firing.
 
-## reset([options])
+## restart([options])
 
 Restart the current timer.
 
-If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to every 0 ms.
+If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to interval from constructor.
 
 If {immediate: true} is passed as an option will emit a tick event immediately.
 
 ## immediate()
 
-Emit a tick event and reset the current timer effectively restarting.
+Emit a tick event and restart the current timer effectively restarting.
 
 ## Catalog of Events
 "tick" — when the elapsed time is equal to the set interval
