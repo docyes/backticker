@@ -1,6 +1,6 @@
 var Backbone.Ticker = function(options) {
     options || (options = {});
-    this.delay = options.delay;
+    this.interval = options.interval;
     this.cid = _.uniqueId('ticker');
     if (options.start) {
         this.start(options.immediate);
@@ -18,7 +18,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
             _.bind(function() {
                 this.trigger('tick');
             }, this),
-            this.delay
+            this.interval
         );
     },
     stop: function() {
