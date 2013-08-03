@@ -11,10 +11,7 @@ ticker.on('tick', function() {
 ```
 
 ## constructor / initialize
-### new Ticker([options])
-```js
-new Backbone.Ticker({interval: 500});
-```
+### new Backbone.Ticker([options])
 
 If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to every 0 ms.
 
@@ -28,13 +25,19 @@ If immediate is true will emit a tick event immediately.
 
 ## stop()
 
+Stop the current internal timer and any subsequent tick events from firing.
+
 ## reset([options])
+
+Restart the current timer effectively restarting.
 
 If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to every 0 ms.
 
 If {immediate: true} is passed as an option will emit a tick event immediately.
 
 ## immediate()
+
+Emit a tick event and reset the current timer effectively restarting.
 
 ## Catalog of Events
 "tick" — when the elapsed time is equal to the set interval
