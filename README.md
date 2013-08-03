@@ -28,7 +28,7 @@ Stop the current internal timer and any subsequent tick events from firing.
 
 ## reset([options])
 
-Restart the current timer effectively restarting.
+Restart the current timer.
 
 If {interval: number} is passed as an option sets the tick interval rate otherwise defaults to every 0 ms.
 
