@@ -40,3 +40,7 @@ Emit a tick event and reset the current timer effectively restarting.
 
 ## Catalog of Events
 "tick" — when the elapsed time is equal to the set interval
+
+## Backbone.Events Mixin
+Backbone.Events is a module that can be mixed in to any object, giving the object the ability to bind and trigger custom named events. 
+See http://backbonejs.org/#Events for the full array of features available in Backticker.
