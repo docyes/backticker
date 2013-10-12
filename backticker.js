@@ -1,4 +1,4 @@
-var Backbone.Ticker = function(options) {
+Backbone.Ticker = function(options) {
     options || (options = {});
     this.interval = options.interval;
     this.cid = _.uniqueId('ticker');
