@@ -42,4 +42,16 @@
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after default interval');
     });
+    test('initialize with single param start true', 1, function() {
+        var ticker = new Backbone.Ticker({start: true, params: 'hello'});
+        ticker.on('tick', this.callback);
+        this.clock.tick(1000);
+        ok(this.callback.calledWith('hello'), 'tick called with single argument');    
+    });
+    test('initialize with multi-param start true', 1, function() {
+        var ticker = new Backbone.Ticker({start: true, params: ['hello', 'world']});
+        ticker.on('tick', this.callback);
+        this.clock.tick(1000);
+        ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
+    });
 })();
