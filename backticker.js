@@ -46,8 +46,7 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
         }
     },
     _triggerTick: function() {
-        this.trigger('tick');
-        //var args = _.isArray(this.params) ? this.params : [this.params];
-        //this.trigger.apply(this, ['tick'].concat(args));
+        var args = _.isArray(this.params) ? this.params : [this.params];
+        this.trigger.apply(this, ['tick'].concat(args));
     }
 });
