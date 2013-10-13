@@ -42,6 +42,4 @@
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after default interval');
     });
-
-
 })();

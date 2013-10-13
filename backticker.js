@@ -6,7 +6,7 @@ Backbone.Ticker = function(options) {
         this.params = options.params;
     }
     if (options.start) {
-        this.start(options.immediate);
+        this.start();
     }
 };
 _.extend(Backbone.Ticker.prototype, Backbone.Events, {
@@ -46,7 +46,8 @@ _.extend(Backbone.Ticker.prototype, Backbone.Events, {
         }
     },
     _triggerTick: function() {
-        var args = _.isArray(this.params) ? this.params : [this.params];
-        this.trigger.apply(this, ['tick'].concat(args));
+        this.trigger('tick');
+        //var args = _.isArray(this.params) ? this.params : [this.params];
+        //this.trigger.apply(this, ['tick'].concat(args));
     }
 });
