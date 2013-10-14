@@ -36,9 +36,11 @@ If {tick: true} is passed as an option will emit a `tick` event immediately.
 
 If {params: value} is passed as an option when the `tick` event is trigggered it will pass the value as a subsequent argument. Note, if value is an array it will pass each item as a subsequent argument.
 
-## tick()
+## tick([params])
 
-Emit a `tick` event and restart the current timer effectively restarting.
+Emit a `tick` event.
+
+If `param` the `tick` event will pass the value as a subsequent argument. Note, if the valie is an array it will pass each item as a subsequent argument.
 
 ## cid
 A special property of tickers, the `cid` or client id is a unique identifier automatically assigned to all tickers when they're first created.
