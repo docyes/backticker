@@ -96,4 +96,27 @@
         this.clock.tick(1000);
         equal(this.callback.callCount, 0, 'tick not emitted after default interval because stopped');
     });
+    test('restart', 2, function() {
+        var ticker = new Backbone.Ticker();
+        ticker.on('tick', this.callback);
+        ticker.start();
+        this.clock.tick(1000-1);
+        ticker.restart();
+        this.clock.tick(1000-1);
+        equal(this.callback.callCount, 0, 'tick not emitted before default interval');
+        this.clock.tick(1000);
+        equal(this.callback.callCount, 1, 'tick emitted after default interval');
+    });
+    test('restart with interval', 2, function() {
+        var ticker = new Backbone.Ticker(),
+            interval = 250;
+        ticker.on('tick', this.callback);
+        ticker.start();
+        this.clock.tick(1000-1);
+        ticker.restart({interval: interval});
+        this.clock.tick(interval-1);
+        equal(this.callback.callCount, 0, 'tick not emitted before custom interval');
+        this.clock.tick(interval);
+        equal(this.callback.callCount, 1, 'tick emitted after custom interval');
+    });
 })();
