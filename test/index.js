@@ -79,12 +79,12 @@
         this.clock.tick(1000);
         equal(this.callback.callCount, 1, 'tick emitted after default interval because started');
     });
-    test('start with immediate true', 2, function() {
+    test('start with tick true', 2, function() {
         var ticker = new Backbone.Ticker();
         ticker.on('tick', this.callback);
         ticker.start(true);
         this.clock.tick(1000-1);
-        equal(this.callback.callCount, 1, 'tick emitted before default interval because immediate');
+        equal(this.callback.callCount, 1, 'tick emitted before default interval because tick');
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
     });
@@ -119,13 +119,13 @@
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after custom interval');
     });
-    test('restart with immediate true', 2, function() {
+    test('restart with tick true', 2, function() {
         var ticker = new Backbone.Ticker();
         ticker.on('tick', this.callback);
         ticker.start();
-        ticker.restart({immediate: true});
+        ticker.restart({tick: true});
         this.clock.tick(1000-1);
-        equal(this.callback.callCount, 1, 'tick emitted before default interval because immediate');
+        equal(this.callback.callCount, 1, 'tick emitted before default interval because tick');
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
     });
