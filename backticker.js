@@ -40,10 +40,8 @@ _.extend(Ticker.prototype, Backbone.Events, {
         this.start(options.tick);
     },
     tick: function(params) {
-        if (params) {
-            this.params = params;
-        }
-        var args = _.isArray(this.params) ? this.params : [this.params];
+        params || (params=this.params);
+        var args = _.isArray(params) ? params : [params];
         this.trigger.apply(this, ['tick'].concat(args));
     }
 });
