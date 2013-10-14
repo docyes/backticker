@@ -79,7 +79,7 @@
         this.clock.tick(1000);
         equal(this.callback.callCount, 1, 'tick emitted after default interval because started');
     });
-     test('start with immediate true', 2, function() {
+    test('start with immediate true', 2, function() {
         var ticker = new Backbone.Ticker();
         ticker.on('tick', this.callback);
         ticker.start(true);
@@ -87,5 +87,13 @@
         equal(this.callback.callCount, 1, 'tick emitted before default interval because immediate');
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
+    });
+    test('stop', 1, function() {
+        var ticker = new Backbone.Ticker();
+        ticker.on('tick', this.callback);
+        ticker.start();
+        ticker.stop();
+        this.clock.tick(1000);
+        equal(this.callback.callCount, 0, 'tick not emitted after default interval because stopped');
     });
 })();
