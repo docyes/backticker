@@ -119,7 +119,7 @@
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after custom interval');
     });
-     test('restart with immediate true', 2, function() {
+    test('restart with immediate true', 2, function() {
         var ticker = new Backbone.Ticker();
         ticker.on('tick', this.callback);
         ticker.start();
@@ -128,6 +128,22 @@
         equal(this.callback.callCount, 1, 'tick emitted before default interval because immediate');
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
+    });
+    test('restart with single param', 1, function() {
+        var ticker = new Backbone.Ticker();
+        ticker.on('tick', this.callback);
+        ticker.start();
+        ticker.restart({params: 'hello'});
+        this.clock.tick(1000);
+        ok(this.callback.calledWith('hello'), 'tick called with single argument');    
+    });
+    test('restart with multi-param', 1, function() {
+        var ticker = new Backbone.Ticker();
+        ticker.on('tick', this.callback);
+        ticker.start();
+        ticker.restart({params: ['hello', 'world']});
+        this.clock.tick(1000);
+        ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
     });
     
 })();
