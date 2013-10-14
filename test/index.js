@@ -145,5 +145,12 @@
         this.clock.tick(1000);
         ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
     });
+     test('tick', 1, function() {
+        var ticker = new Backbone.Ticker();
+        ticker.on('tick', this.callback);
+        ticker.start();
+        ticker.tick();
+        equal(this.callback.callCount, 1, 'tick emitted before default interval because tick called');
+    });
     
 })();
