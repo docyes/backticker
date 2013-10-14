@@ -1,4 +1,4 @@
-Backbone.Ticker = function(options) {
+Ticker = function(options) {
     options || (options = {});
     this.interval = options.interval || 1000;
     this.cid = _.uniqueId('ticker');
@@ -9,7 +9,7 @@ Backbone.Ticker = function(options) {
         this.start();
     }
 };
-_.extend(Backbone.Ticker.prototype, Backbone.Events, {
+_.extend(Ticker.prototype, Backbone.Events, {
     start: function(tick) {
         if (this._intervalId) {
             return;
