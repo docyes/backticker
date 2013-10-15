@@ -10,7 +10,7 @@ ticker.on('tick', function() {
 ```
 
 ## constructor / initialize
-### new Backbone.Ticker([options])
+### new Ticker([options])
 
 If {interval: number} is passed as an option sets the `tick` `interval` rate otherwise defaults to every 0 ms.
 
