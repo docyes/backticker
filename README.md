@@ -20,7 +20,12 @@ If {params: value(s)} is passed as an option when the `tick` event is trigggered
 
 ## start([tick])
 
+Starts the current timer.
+
 If `tick` is true will emit a `tick` event immediately.
+
+Note that calling `ticker.start()` when already started is a no-op -- including tick true being passed.
+
 
 ## stop()
 
