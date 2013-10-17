@@ -12,7 +12,7 @@ Ticker = function(options) {
 _.extend(Ticker.prototype, Backbone.Events, {
     start: function(tick) {
         if (this._intervalId) {
-            return;
+            return false;
         }
         if (tick) {
             this.tick();
@@ -21,12 +21,15 @@ _.extend(Ticker.prototype, Backbone.Events, {
             _.bind(this.tick, this),
             this.interval
         );
+        return true;
     },
     stop: function() {
         if (this._intervalId) {
             clearInterval(this._intervalId);
             delete this._intervalId;
+            return true;
         }
+        return false;
     },
     restart: function(options) {
         options || (options = {});
