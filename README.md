@@ -24,12 +24,14 @@ Starts the current timer.
 
 If `tick` is true will emit a `tick` event immediately.
 
-Note that calling `ticker.start()` when already started is a no-op -- including tick true being passed.
+Note that calling `ticker.start()` when already started is a no-op returning false -- including tick true being passed.
 
 
 ## stop()
 
 Stop the current internal timer and any subsequent `tick` events from firing.
+
+Note that calling `ticker.stop()` on a non-started ticker is a no-op returning false.
 
 ## restart([options])
 
