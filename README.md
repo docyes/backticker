@@ -12,7 +12,7 @@ ticker.on('tick', function() {
 ## constructor / initialize
 ### new Ticker([options])
 
-If {interval: number} is passed as an option sets the `tick` `interval` rate otherwise defaults to every 0 ms.
+If {interval: number} is passed as an option sets the `tick` `interval` rate otherwise defaults to every 1000 ms.
 
 If {start: true} is passed as an option starts the ticker otherwise it must manually be started before emmiting `tick` events.
 
@@ -55,7 +55,7 @@ If `param` the `tick` event will pass the value as a subsequent argument. Note, 
 A special property of tickers, the `cid` or client id is a unique identifier automatically assigned to all tickers when they're first created.
 
 ## interval
-The `interval` between each `tick` event; defaults to undefined.
+The `interval` between each `tick` event; defaults to 1000.
 
 ## params
 When the `tick` event is trigggered params will be passed as a subsequent argument; defaults to undefined.
