@@ -23,8 +23,11 @@ _.extend(Ticker.prototype, Backbone.Events, {
         );
         return true;
     },
-    stop: function() {
+    stop: function(tick) {
         if (this._intervalId) {
+            if (tick) {
+                this.tick();
+            }
             clearInterval(this._intervalId);
             delete this._intervalId;
             return true;

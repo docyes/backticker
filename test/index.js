@@ -88,6 +88,13 @@
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
     });
+    test('start tick noop', 1, function() {
+         var ticker = new Ticker();
+         ticker.on('tick', this.callback);
+         ticker.start();
+         ticker.start(true);
+         equal(this.callback.callCount, 0, 'tick not emitted because already started');
+    });
     test('start status', 2, function() {
          var ticker = new Ticker();
          equal(ticker.start(), true, 'start running');
@@ -100,6 +107,14 @@
         ticker.stop();
         this.clock.tick(1000);
         equal(this.callback.callCount, 0, 'tick not emitted after default interval because stopped');
+    });
+    test('stop tick noop', 1, function() {
+         var ticker = new Ticker();
+         ticker.on('tick', this.callback);
+         ticker.start();
+         ticker.stop();
+         ticker.stop(true);
+         equal(this.callback.callCount, 0, 'tick not emitted because not running');
     });
     test('stop status', 2, function() {
         var ticker = new Ticker();
