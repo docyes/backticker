@@ -27,6 +27,8 @@ var EasingTicker = Ticker.extend({
 ## constructor / initialize
 ### new Ticker([options])
 
+If you define an initialize function, it will be invoked when the ticker is created.
+
 If {interval: number} is passed as an option sets the `tick` `interval` rate otherwise defaults to every 1000 ms.
 
 If {start: true} is passed as an option starts the ticker otherwise it must manually be started before emmiting `tick` events.
