@@ -11,8 +11,10 @@ Ticker = function(options) {
     if (options.start) {
         this.start();
     }
+    this.initialize.apply(this, arguments);
 };
 _.extend(Ticker.prototype, Backbone.Events, {
+    initialize: function() {},
     start: function(tick) {
         if (this._intervalId) {
             return false;
