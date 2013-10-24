@@ -1,10 +1,7 @@
-Ticker = function(options) {
+var Ticker = function(options) {
     options || (options = {});
-    this.interval = options.interval || 1000;
+    _.extend(this, _.pick(options, ['interval', 'params']));
     this.cid = _.uniqueId('ticker');
-    if (options.params) {
-        this.params = options.params;
-    }
     if (options.tick) {
         this.tick();
     }
@@ -15,6 +12,7 @@ Ticker = function(options) {
 };
 _.extend(Ticker.prototype, Backbone.Events, {
     initialize: function() {},
+    interval: 1000,
     start: function(tick) {
         if (this._intervalId) {
             return false;
@@ -42,12 +40,7 @@ _.extend(Ticker.prototype, Backbone.Events, {
     restart: function(options) {
         options || (options = {});
         this.stop();
-        if (options.interval) {
-            this.interval = options.interval;
-        }
-        if (options.params) {
-            this.params = options.params;
-        }
+        _.extend(this, _.pick(options, ['interval', 'params']));
         this.start(options.tick);
     },
     tick: function(params) {
