@@ -18,6 +18,8 @@ If {start: true} is passed as an option starts the ticker otherwise it must manu
 
 If {params: value(s)} is passed as an option when the `tick` event is trigggered it will pass the value as a subsequent argument. Note, if value is an array it will pass each item as a subsequent argument.
 
+If {tick: true} is pass as an option will emit a `tick` event immediately.
+
 ## start([tick])
 
 Starts the current timer.
