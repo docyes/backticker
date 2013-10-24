@@ -76,14 +76,25 @@
         var ticker = new TickerExtended({tick: true});
         ok(ticker.tick.calledOnce, 'tick called');
     });
-    test('extend with custom initialize', 1, function() {
-        var TickerExtended = Ticker.extend({
+    test('extend', 4, function() {
+        var interval = 500,
+            params = 'hello',
+            TickerExtended = Ticker.extend({
             initialize: function() {
                 this.called = true;
-            }
+            },
+            interval: interval,
+            params: params
         });
         var ticker = new TickerExtended();
-        ok(ticker.called, 'initialize called');
+        ok(ticker.called, 'custom initialize');
+        ticker.on('tick', this.callback);
+        ticker.start();
+        this.clock.tick(interval-1);
+        equal(this.callback.callCount, 0, 'tick not emitted before custom interval');
+        this.clock.tick(interval);
+        equal(this.callback.callCount, 1, 'tick emitted after custom interval');
+        ok(this.callback.calledWith(params), 'tick called with single argument');    
     });
     test('start', 2, function() {
         var ticker = new Ticker();
