@@ -9,6 +9,23 @@ ticker.on('tick', function() {
 });
 ```
 
+## Ticker.extend(properties, [classProperties]) 
+To create a Ticker class of your own, you extend Ticker and provide instance properties, as well as optional classProperties to be attached directly to the constructor function.
+
+extend correctly sets up the prototype chain, so subclasses created with extend can be further extended and subclassed as far as you like.
+
+```js
+FastTicker = Ticker.extend({
+    initialize: function(options) {
+        options || (options={});
+        if (!options.interval) {
+            options.interval = 1;
+        }
+        Ticker.prototype.initialize.call(this, options);
+    }
+});
+```
+
 ## constructor / initialize
 ### new Ticker([options])
 
