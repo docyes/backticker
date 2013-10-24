@@ -76,6 +76,15 @@
         var ticker = new TickerExtended({tick: true});
         ok(ticker.tick.calledOnce, 'tick called');
     });
+    test('extend with custom initialize', 1, function() {
+        var TickerExtended = Ticker.extend({
+            initialize: function() {
+                this.called = true;
+            }
+        });
+        var ticker = new TickerExtended();
+        ok(ticker.called, 'initialize called');
+    });
     test('start', 2, function() {
         var ticker = new Ticker();
         ticker.on('tick', this.callback);
