@@ -70,6 +70,12 @@
         this.clock.tick(1000);
         ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
     });
+    test('initialize with tick true', 1, function() {
+        var TickerExtended = Ticker.extend({});
+        sinon.spy(TickerExtended.prototype, 'tick');
+        var ticker = new TickerExtended({tick: true});
+        ok(ticker.tick.calledOnce, 'tick called');
+    });
     test('start', 2, function() {
         var ticker = new Ticker();
         ticker.on('tick', this.callback);

@@ -5,6 +5,9 @@ Ticker = function(options) {
     if (options.params) {
         this.params = options.params;
     }
+    if (options.tick) {
+        this.tick();
+    }
     if (options.start) {
         this.start();
     }
@@ -51,3 +54,4 @@ _.extend(Ticker.prototype, Backbone.Events, {
         this.trigger.apply(this, ['tick'].concat(args));
     }
 });
+Ticker.extend = Backbone.Model.extend;
