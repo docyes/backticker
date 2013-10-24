@@ -15,7 +15,7 @@ To create a Ticker class of your own, you extend Ticker and provide instance pro
 extend correctly sets up the prototype chain, so subclasses created with extend can be further extended and subclassed as far as you like.
 
 ```js
-EasingTicker = Ticker.extend({
+var EasingTicker = Ticker.extend({
     initialize: function(options) {
         this.on('tick', function() {
             this.restart({interval: Math.pow(this.interval, 2));
