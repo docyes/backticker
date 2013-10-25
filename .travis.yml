@@ -1,1 +1,1 @@
-script: phantomjs tests/contrib/run-qunit.js tests/index.html
+script: phantomjs test/contrib/run-qunit.js test/index.html
