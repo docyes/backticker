@@ -1,4 +1,4 @@
-# Back Ticker [logo]: https://api.travis-ci.org/docyes/backticker.png?branch=master "Build Status"
+# Back Ticker ![alt text](https://api.travis-ci.org/docyes/backticker.png?branch=master "Build Status")
 
 setInterval's older brother. A Backbone-like class for creating objects that emit a tick event (Backbone.Events Mixin) at a defined interval based on an internal timer.
 
