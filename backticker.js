@@ -1,6 +1,6 @@
 var Ticker = function(options) {
     options || (options = {});
-    _.extend(this, _.pick(options, ['interval', 'params']));
+    _.extend(this, _.pick(options, ['interval']));
     this.cid = _.uniqueId('ticker');
     if (options.tick) {
         this.tick();
@@ -40,11 +40,14 @@ _.extend(Ticker.prototype, Backbone.Events, {
     restart: function(options) {
         options || (options = {});
         this.stop();
-        _.extend(this, _.pick(options, ['interval', 'params']));
+        _.extend(this, _.pick(options, ['interval']));
         this.start(options.tick);
     },
+    params: function() {
+        return new Date().getTime();
+    },
     tick: function(params) {
-        params || (params=this.params);
+        var params = params || this.params();
         var args = _.isArray(params) ? params : [params];
         this.trigger.apply(this, ['tick'].concat(args));
     }

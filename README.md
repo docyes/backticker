@@ -33,8 +33,6 @@ If {interval: number} is passed as an option sets the `tick` `interval` rate oth
 
 If {start: true} is passed as an option starts the ticker otherwise it must manually be started before emmiting `tick` events.
 
-If {params: value(s)} is passed as an option when the `tick` event is trigggered it will pass the value as a subsequent argument. Note, if value is an array it will pass each item as a subsequent argument.
-
 If {tick: true} is pass as an option will emit a `tick` event immediately.
 
 ## start([tick])
@@ -62,22 +60,20 @@ If {interval: number} is passed as an option sets the tick `interval` rate other
 
 If {tick: true} is passed as an option will emit a `tick` event immediately.
 
-If {params: value} is passed as an option when the `tick` event is trigggered it will pass the value as a subsequent argument. Note, if value is an array it will pass each item as a subsequent argument.
+## params()
+When the `tick` event is trigggered it will pass the returned value of this function as a subsequent argument. Note, if the return value is an array it will pass each item as a subsequent argument. By default this returns the number of milliseconds between midnight of January 1, 1970.
 
 ## tick([params])
 
 Emit a `tick` event.
 
-If `param` the `tick` event will pass the value as a subsequent argument. Note, if the valie is an array it will pass each item as a subsequent argument.
+If `param` the `tick` event will pass the value as a subsequent argument. Note, if the value is an array it will pass each item as a subsequent argument.
 
 ## cid
 A special property of tickers, the `cid` or client id is a unique identifier automatically assigned to all tickers when they're first created.
 
 ## interval
 The `interval` between each `tick` event; defaults to 1000.
-
-## params
-When the `tick` event is trigggered params will be passed as a subsequent argument; defaults to undefined.
 
 ## Catalog of Events
 "tick" — when the elapsed time is equal to the set `interval`

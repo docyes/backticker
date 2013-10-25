@@ -42,34 +42,6 @@
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after default interval');
     });
-    test('initialize with single param', 2, function() {
-        var ticker = new Ticker({params: 'hello'});
-        ticker.on('tick', this.callback);
-        this.clock.tick(1000-1);
-        equal(this.callback.callCount, 0, 'tick not emitted before default interval');
-        this.clock.tick(1000);
-        equal(this.callback.callCount, 0, 'tick not emitted after default interval because never started');
-    });
-    test('initialize with single param and start true', 1, function() {
-        var ticker = new Ticker({start: true, params: 'hello'});
-        ticker.on('tick', this.callback);
-        this.clock.tick(1000);
-        ok(this.callback.calledWith('hello'), 'tick called with single argument');    
-    });
-    test('initialize with multi-param', 2, function() {
-        var ticker = new Ticker({params: ['hello', 'world']});
-        ticker.on('tick', this.callback);
-        this.clock.tick(1000-1);
-        equal(this.callback.callCount, 0, 'tick not emitted before default interval');
-        this.clock.tick(1000);
-        equal(this.callback.callCount, 0, 'tick not emitted after default interval because never started');
-    });
-    test('initialize with multi-param and start true', 1, function() {
-        var ticker = new Ticker({start: true, params: ['hello', 'world']});
-        ticker.on('tick', this.callback);
-        this.clock.tick(1000);
-        ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
-    });
     test('initialize with tick true', 1, function() {
         var TickerExtended = Ticker.extend({});
         sinon.spy(TickerExtended.prototype, 'tick');
@@ -84,7 +56,9 @@
                 this.called = true;
             },
             interval: interval,
-            params: params
+            params: function() {
+                return params;
+            }
         });
         var ticker = new TickerExtended();
         ok(ticker.called, 'custom initialize');
@@ -94,7 +68,7 @@
         equal(this.callback.callCount, 0, 'tick not emitted before custom interval');
         this.clock.tick(interval);
         equal(this.callback.callCount, 1, 'tick emitted after custom interval');
-        ok(this.callback.calledWith(params), 'tick called with single argument');    
+        ok(this.callback.calledWith(params), 'tick called with custom param');    
     });
     test('start', 2, function() {
         var ticker = new Ticker();
@@ -180,22 +154,6 @@
         equal(this.callback.callCount, 1, 'tick emitted before default interval because tick');
         this.clock.tick(1000);
         equal(this.callback.callCount, 2, 'tick emitted after default interval because already started');
-    });
-    test('restart with single param', 1, function() {
-        var ticker = new Ticker();
-        ticker.on('tick', this.callback);
-        ticker.start();
-        ticker.restart({params: 'hello'});
-        this.clock.tick(1000);
-        ok(this.callback.calledWith('hello'), 'tick called with single argument');    
-    });
-    test('restart with multi-param', 1, function() {
-        var ticker = new Ticker();
-        ticker.on('tick', this.callback);
-        ticker.start();
-        ticker.restart({params: ['hello', 'world']});
-        this.clock.tick(1000);
-        ok(this.callback.calledWith('hello', 'world'), 'tick called with two arguments');    
     });
     test('tick', 1, function() {
         var ticker = new Ticker();
